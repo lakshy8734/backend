@@ -1,10 +1,14 @@
 const express = require('express');
-const bodyParser = require('body-parser'); 
+const bodyParser = require('body-parser');
+const cors = require('cors'); // Import cors module
 const app = express();
 const port = 5000;
 const mongoDb = require("./db");
 mongoDb();
+
+// Use cors middleware
 app.use(cors());
+
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
